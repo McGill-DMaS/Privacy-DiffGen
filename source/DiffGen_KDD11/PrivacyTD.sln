@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BFLib", "..\BFLib\BFLib.vcproj", "{F3C21C61-426C-48D0-A49E-37DC9ECD3F24}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PrivacyTD", "PrivacyTD.vcproj", "{B14821E2-ABEF-473E-970B-13C343D74399}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F3C21C61-426C-48D0-A49E-37DC9ECD3F24} = {F3C21C61-426C-48D0-A49E-37DC9ECD3F24}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F3C21C61-426C-48D0-A49E-37DC9ECD3F24}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F3C21C61-426C-48D0-A49E-37DC9ECD3F24}.Debug|Win32.Build.0 = Debug|Win32
+		{F3C21C61-426C-48D0-A49E-37DC9ECD3F24}.Release|Win32.ActiveCfg = Release|Win32
+		{F3C21C61-426C-48D0-A49E-37DC9ECD3F24}.Release|Win32.Build.0 = Release|Win32
+		{B14821E2-ABEF-473E-970B-13C343D74399}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B14821E2-ABEF-473E-970B-13C343D74399}.Debug|Win32.Build.0 = Debug|Win32
+		{B14821E2-ABEF-473E-970B-13C343D74399}.Release|Win32.ActiveCfg = Release|Win32
+		{B14821E2-ABEF-473E-970B-13C343D74399}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

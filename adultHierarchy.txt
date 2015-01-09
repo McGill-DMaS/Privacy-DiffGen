@@ -1,0 +1,176 @@
+If you find these taxonomy trees useful in your research, please cite the source:
+
+B. C. M. Fung, K. Wang, and P. S. Yu. Anonymizing classification data for privacy preservation. IEEE Transactions on Knowledge and Data Engineering (TKDE), 19(5):711-725, May 2007. IEEE Computer Society.
+
+
+
+classes:discrete		| classes
+{Any Class {>50K} {<=50K}}
+
+age:continuous
+{15-95 {ignored}}
+workclass:discrete
+{Any 
+	{Worked 
+		{With-Pay 
+			{Private} 
+			{Self-emp 
+				{Self-emp-not-inc} 
+				{Self-emp-inc}} 
+			{Gov 
+				{Federal-gov} 
+				{Local-gov} 
+				{State-gov}}} 
+		{Without-pay}} 
+	{Never-worked}}
+fnlwgt:continuous
+{0-1500000 {ignored}}
+education:discrete
+{Any
+	{Without-Post-Secondary 
+		{Preschool} 
+		{Elementary 
+			{1st-4th} 
+			{5th-6th} 
+			{7th-8th}} 
+		{Secondary 
+			{Junior-Secondary 
+				{9th} 
+				{10th}} 
+			{Senior-Secondary 
+				{11th} 
+				{12th} 
+				{HS-grad}}}} 
+	{Post-secondary 
+		{Some-college} 
+		{Assoc 
+			{Assoc-acdm} 
+			{Assoc-voc}} 
+		{University 
+			{Bachelors} 
+			{Prof-school} 
+		{Post-grad 
+			{Masters} 
+			{Doctorate}}}}}
+education-num:continuous
+{1-20 {ignored}}
+martial-status:discrete 
+{Any 
+	{Married 
+		{Partner-present 
+			{Married-civ-spouse} 
+			{Married-AF-spouse}} 
+		{Partner-absent 
+			{Divorced} 
+			{Separated} 
+			{Widowed} 
+			{Married-spouse-absent}}} 
+	{Never-married}}
+occupation:discrete
+{Any 
+	{White-collar 
+		{Exec-managerial} 
+		{Prof-specialty} 
+		{Sales} 
+		{Adm-clerical}} 
+	{Blue-collar 
+		{Tech-support} 
+		{Craft-repair} 
+		{Machine-op-inspct} 
+		{Handlers-cleaners} 
+		{Transport-moving} 
+		{Priv-house-serv}} 
+	{Other 
+		{Protective-serv} 
+		{Armed-Forces} 
+		{Farming-fishing} 
+		{Other-service}}}
+relationship:discrete
+{Any 
+	{In-family 
+		{Wife} 
+		{Own-child} 
+		{Husband}} 
+	{Not-in-family} 
+	{Other-relative} 
+	{Unmarried}}
+race:discrete
+{Any 
+	{White} 
+	{Colored 
+		{Asian-Pac-Islander} 
+		{Amer-Indian-Eskimo} 
+		{Other} 
+		{Black}}}
+sex:discrete 
+{Any 
+	{Female} 
+	{Male}}
+capital-gain:continuous
+{0-100000 {ignored}}
+capital-loss:continuous
+{0-5000 {ignored}}
+hours-per-week:continuous
+{1-100 {ignored}}
+native-country:discrete
+{Any 
+	{North-America 
+		{USA 
+			{United-States} 
+			{Outlying-US(Guam-USVI-etc)}} 
+		{Canada}} 
+			{Middle-America 
+				{Mexico} 
+				{Honduras} 
+				{Guatemala} 
+				{Nicaragua} 
+				{El-Salvador}} 
+	{South-America 
+		{Western-South-America 
+			{Ecuador} 
+			{Peru}} 
+		{Northern-South-America 
+			{Columbia}} 
+		{Caribbean 
+			{Puerto-Rico} 
+			{Dominican-Republic} 
+			{Jamaica} 
+			{Cuba} 
+			{Haiti} 
+			{Trinadad&Tobago}}} 
+	{Europe 
+		{Western-Europe 
+			{France} 
+			{England} 
+			{Ireland} 
+			{Scotland} 
+			{Holand-Netherlands}} 
+		{Southern-Europe 
+			{Italy} 
+			{Greece}} 
+		{Southwestern-Europe 
+			{Portugal}} 
+		{Southeastern-Europe 
+			{Yugoslavia}} 
+		{Central-Europe 
+			{Hungary} 
+			{Germany} 
+			{Poland}}} 
+	{Asia 
+		{Southeastern-Asia 
+			{Philippines} 
+			{Thailand} 
+			{Cambodia} 
+			{Vietnam} 
+			{Laos}} 
+		{Southern-Asia 
+			{India}} 
+		{Eastern-Asia 
+			{Japan} 
+			{China} 
+			{Hong} 
+			{Taiwan} 
+			{South}} 
+		{Middle-East 
+			{Iran}}}}
+

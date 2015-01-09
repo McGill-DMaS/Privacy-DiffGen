@@ -1,0 +1,129 @@
+| This data was extracted from the census bureau database found at
+| http://www.census.gov/ftp/pub/DES/www/welcome.html
+| Donor: Ronny Kohavi and Barry Becker,
+|        Data Mining and Visualization
+|        Silicon Graphics.
+|        e-mail: ronnyk@sgi.com for questions.
+| Split into train-test using MLC++ GenCVFiles (2/3, 1/3 random).
+| 48842 instances, mix of continuous and discrete    (train=32561, test=16281)
+| 45222 if instances with unknown values are removed (train=30162, test=15060)
+| Duplicate or conflicting instances : 6
+| Class probabilities for adult.all file
+| Probability for the label '>50K'  : 23.93% / 24.78% (without unknowns)
+| Probability for the label '<=50K' : 76.07% / 75.22% (without unknowns)
+|
+| Extraction was done by Barry Becker from the 1994 Census database.  A set of
+|   reasonably clean records was extracted using the following conditions:
+|   ((AAGE>16) && (AGI>100) && (AFNLWGT>1)&& (HRSWK>0))
+|
+| Prediction task is to determine whether a person makes over 50K
+| a year.
+|
+| First cited in:
+| @inproceedings{kohavi-nbtree,
+|    author={Ron Kohavi},
+|    title={Scaling Up the Accuracy of Naive-Bayes Classifiers: a
+|           Decision-Tree Hybrid},
+|    booktitle={Proceedings of the Second International Conference on
+|               Knowledge Discovery and Data Mining},
+|    year = 1996,
+|    pages={to appear}}
+|
+| Error Accuracy reported as follows, after removal of unknowns from
+|    train/test sets):
+|    C4.5       : 84.46+-0.30
+|    Naive-Bayes: 83.88+-0.30
+|    NBTree     : 85.90+-0.28
+|
+|
+| Following algorithms were later run with the following error rates,
+|    all after removal of unknowns and using the original train/test split.
+|    All these numbers are straight runs using MLC++ with default values.
+|
+|    Algorithm               Error
+| -- ----------------        -----
+| 1  C4.5                    15.54
+| 2  C4.5-auto               14.46
+| 3  C4.5 rules              14.94
+| 4  Voted ID3 (0.6)         15.64
+| 5  Voted ID3 (0.8)         16.47
+| 6  T2                      16.84
+| 7  1R                      19.54
+| 8  NBTree                  14.10
+| 9  CN2                     16.00
+| 10 HOODG                   14.82
+| 11 FSS Naive Bayes         14.05
+| 12 IDTM (Decision table)   14.46
+| 13 Naive-Bayes             16.12
+| 14 Nearest-neighbor (1)    21.42
+| 15 Nearest-neighbor (3)    20.35
+| 16 OC1                     15.04
+| 17 Pebls                   Crashed.  Unknown why (bounds WERE increased)
+|
+| Conversion of original data as follows:
+| 1. Discretized agrossincome into two ranges with threshold 50,000.
+| 2. Convert U.S. to US to avoid periods.
+| 3. Convert Unknown to "?"
+| 4. Run MLC++ GenCVFiles to generate data,test.
+|
+| Description of fnlwgt (final weight)
+|
+| The weights on the CPS files are controlled to independent estimates of the
+| civilian noninstitutional population of the US.  These are prepared monthly
+| for us by Population Division here at the Census Bureau.  We use 3 sets of
+| controls.
+|  These are:
+|          1.  A single cell estimate of the population 16+ for each state.
+|          2.  Controls for Hispanic Origin by age and sex.
+|          3.  Controls by Race, age and sex.
+|
+| We use all three sets of controls in our weighting program and "rake" through
+| them 6 times so that by the end we come back to all the controls we used.
+|
+| The term estimate refers to population totals derived from CPS by creating
+| "weighted tallies" of any specified socio-economic characteristics of the
+| population.
+|
+| People with similar demographic characteristics should have
+| similar weights.  There is one important caveat to remember
+| about this statement.  That is that since the CPS sample is
+| actually a collection of 51 state samples, each with its own
+| probability of selection, the statement only applies within
+| state.
+
+classes:discrete		| classes
+{Any Class {>50K} {<=50K}}
+
+age:continuous
+{15-95 {15-55 {15-35 {15-25 {15-20} {20-25}} {25-35 {25-30} {30-35}}} {35-55 {35-45 {35-40} {40-45}} {45-55 {45-50} {50-55}}}} {55-95 {55-75 {55-65 {55-60} {60-65}} {65-75 {65-70} {70-75}}} {75-95 {75-85 {75-80} {80-85}} {85-95 {85-90} {90-95}}}}}
+workclass:discrete:generalization
+{Any {Worked {With-Pay {Private} {Self-emp {Self-emp-not-inc} {Self-emp-inc}} {Gov {Federal-gov} {Local-gov} {State-gov}}} {Without-pay}} {Never-worked}}
+fnlwgt:continuous
+{0-1500000 {0-100000 {0-50000} {50000-100000}} {100000-200000 {100000-150000} {150000-200000}} {200000-300000 {200000-250000} {250000-300000}} {300000-400000 {300000-350000} {350000-400000}} {400000-500000 {400000-450000} {450000-500000}} {500000-1500000}}
+education:discrete:generalization
+{Any {Without-Post-Secondary {Preschool} {Elementary {1st-4th} {5th-6th} {7th-8th}} {Secondary {Junior-Secondary {9th} {10th}} {Senior-Secondary {11th} {12th} {HS-grad}}}} {Post-secondary {Some-college} {Assoc {Assoc-acdm} {Assoc-voc}} {University {Bachelors} {Prof-school} {Post-grad {Masters} {Doctorate}}}}}
+education-num:continuous
+{1-20 {1-10 {1-5} {5-10}} {10-20 {10-15} {15-20}}}
+martial-status:discrete:generalization
+{Any {Married {Partner-present {Married-civ-spouse} {Married-AF-spouse}} {Partner-absent {Divorced} {Separated} {Widowed} {Married-spouse-absent}}} {Never-married}}
+occupation:discrete:generalization
+{Any {White-collar {Exec-managerial} {Prof-specialty} {Sales} {Adm-clerical}} {Blue-collar {Tech-support} {Craft-repair} {Machine-op-inspct} {Handlers-cleaners} {Transport-moving} {Priv-house-serv}} {Other {Protective-serv} {Armed-Forces} {Farming-fishing} {Other-service}}}
+relationship:discrete:generalization
+{Any {In-family {Wife} {Own-child} {Husband}} {Not-in-family} {Other-relative} {Unmarried}}
+race:discrete:generalization
+{Any {White} {Colored {Asian-Pac-Islander} {Amer-Indian-Eskimo} {Other} {Black}}}
+sex:discrete:generalization
+{Any {Female} {Male}}
+capital-gain:continuous
+{0-100000 {0-20000 {0-5000} {5000-10000} {10000-15000} {15000-20000}} {20000-40000 {20000-25000} {25000-30000} {30000-35000} {35000-40000}} {40000-60000 {40000-45000} {45000-50000} {50000-55000} {55000-60000}} {60000-80000 {60000-65000} {65000-70000} {70000-75000} {75000-80000}} {80000-100000 {80000-85000} {85000-90000} {90000-95000} {95000-100000}}}
+capital-loss:continuous
+{0-5000 {0-3000 {0-1000 {0-500} {500-1000}} {1000-2000 {1000-1500} {1500-2000}} {2000-3000 {2000-2500} {2500-3000}}} {3000-5000 {3000-4000 {3000-3500} {3500-4000}} {4000-5000 {4000-4500} {4500-5000}}}}
+hours-per-week:continuous
+{1-100 {1-20 {1-10} {10-20}} {20-40 {20-30} {30-40}} {40-60 {40-50} {50-60}} {60-80 {60-70} {70-80}} {80-100 {80-90} {90-100}}}
+native-country:discrete:generalization
+{Any {North-America {USA {United-States} {Outlying-US(Guam-USVI-etc)}} {Canada}} {Middle-America {Mexico} {Honduras} {Guatemala} {Nicaragua} {El-Salvador}} {South-America {Western-South-America {Ecuador} {Peru}} {Northern-South-America {Columbia}} {Caribbean {Puerto-Rico} {Dominican-Republic} {Jamaica} {Cuba} {Haiti} {Trinadad&Tobago}}} {Europe {Western-Europe {France} {England} {Ireland} {Scotland} {Holand-Netherlands}} {Southern-Europe {Italy} {Greece}} {Southwestern-Europe {Portugal}} {Southeastern-Europe {Yugoslavia}} {Central-Europe {Hungary} {Germany} {Poland}}} {Asia {Southeastern-Asia {Philippines} {Thailand} {Cambodia} {Vietnam} {Laos}} {Southern-Asia {India}} {Eastern-Asia {Japan} {China} {Hong} {Taiwan} {South}} {Middle-East {Iran}}}}
+
+
+
+vid: | ALL
+{{{20} {age} {workclass} {fnlwgt} {education} {education-num} {martial-status} {occupation} {relationship} {race} {sex} {capital-gain} {capital-loss} {hours-per-week} {native-country}}}
