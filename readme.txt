@@ -1,4 +1,4 @@
-Copyright 2011 Noman Mohammed and Benjamin C. M. Fung
+Copyright 2011 Noman Mohammed, Rui Chen, and Benjamin C. M. Fung
 
 Publication:
 
