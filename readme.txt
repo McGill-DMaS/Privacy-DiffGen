@@ -1,3 +1,4 @@
+Copyright 2011 Noman Mohammed and Benjamin C. M. Fung
 
 Publication:
 
