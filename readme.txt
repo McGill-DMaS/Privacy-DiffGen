@@ -1,4 +1,5 @@
-Copyright 2011 Noman Mohammed, Rui Chen, and Benjamin C. M. Fung
+License: Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International Public License
+Authors: Noman Mohammed, Rui Chen, and Benjamin C. M. Fung
 
 Publication:
 
