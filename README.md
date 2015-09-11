@@ -1,7 +1,9 @@
 # DiffGen
 Differentially private data release  for data mining [SIGKDD 2011]
 
-Copyright 2011 Noman Mohammed, Rui Chen, and Benjamin C. M. Fung
+License: Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International Public License
+
+Owners: Noman Mohammed, Rui Chen, and Benjamin C. M. Fung
 
 Publication:
 
